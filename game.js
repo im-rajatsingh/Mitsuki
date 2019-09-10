@@ -11,7 +11,7 @@ function init(){
 
    snake={
       init_length:5,
-      color: "lightgrey",
+      color: "green",
       cells:[],
       direction:"right",
 
@@ -28,7 +28,7 @@ function init(){
           pen.fillStyle = this.color;
 
           pen.strokeStyle = "black";
-          pen.lineWidth = 5;
+          pen.lineWidth = 2;
 
           pen.strokeRect(this.cells[i].x*10,this.cells[i].y*10,10,10);
 
@@ -64,7 +64,7 @@ function init(){
         nextX = headX ;
         nextY = headY + 1;
        }
-       else {
+       else if(this.direction == "up") {
         nextX = headX;
         nextY = headY - 1;
        }
@@ -100,7 +100,7 @@ function Keypressed(info){
   else  if(info.key==="ArrowDown"){
     snake.direction= "down";
   }
-  else{
+  else if(info.key==="ArrowUp"){
     snake.direction= "up";
   }
   
@@ -125,7 +125,7 @@ function draw(){
     pen.fillRect(food.x*10,food.y*10,10,10);
 
     pen.fillStyle = "white";
-    pen.font = "14px Roboto";
+    pen.font = "10px Arial";
     pen.fillText("Score: "+ score,10,10);
 
 }
